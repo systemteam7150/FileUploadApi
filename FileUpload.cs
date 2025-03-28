@@ -16,17 +16,17 @@ class FileUploadApi
         createRequest.AddJsonBody(new { id = petId, name = "Fluffy", status = "available" });
 
         var createResponse = client.Execute(createRequest);
-        Debug.WriteLine($"Pet Created: {createResponse.Content}");
+        Console.WriteLine($"Pet Created: {createResponse.Content}");
 
         // Add delay to ensure pet is created before proceeding
-        Thread.Sleep(2000);
+        Thread.Sleep(4000);
 
         // Upload an image
         string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mountains.jpg");
 
         if (!File.Exists(imagePath))
         {
-            Debug.WriteLine($"Error: File not found at {imagePath}");
+            Console.WriteLine($"Error: File not found at {imagePath}");
             return;
         }
 
@@ -34,16 +34,16 @@ class FileUploadApi
         uploadRequest.AddFile("file", imagePath);
 
         var uploadResponse = client.Execute(uploadRequest);
-        Debug.WriteLine($"Image Upload Response: {uploadResponse.Content}");
+        Console.WriteLine($"Image Upload Response: {uploadResponse.Content}");
 
         // Verify the image was uploaded successfully
         if (uploadResponse.StatusCode == System.Net.HttpStatusCode.OK)
         {
-            Debug.WriteLine("File uploaded successfully!");
+            Console.WriteLine("File uploaded successfully!");
         }
         else
         {
-            Debug.WriteLine("File upload failed!");
+            Console.WriteLine("File upload failed!");
         }
     }
 }
