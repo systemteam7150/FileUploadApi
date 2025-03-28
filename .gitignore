@@ -1,0 +1,32 @@
+# Build and project files
+/bin/
+/obj/
+*.user
+*.suo
+*.csproj.user
+
+# NuGet packages
+.nuget/
+*.nupkg
+packages/
+
+# IDE files (VS/Rider)
+.vs/
+.idea/
+*.swp
+
+# Local settings
+appsettings.Development.json
+appsettings.local.json
+
+# Compiled outputs
+*.dll
+*.exe
+*.pdb
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Mac OS
+.DS_Store
